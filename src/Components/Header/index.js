@@ -14,19 +14,14 @@ import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    // display: "flex",
-    // flexDirection: "row",
-    flexGrow: 1,
+    // border: "1px solid red",
   },
   image: {
     height: "50px",
     width: "150px",
     // border: "1px solid red",
   },
-  headerMenu: {
-    flexGrow: 1,
-    // border: "1px solid red",
-  },
+
   buttonImage: {
     width: "20px",
     height: "20px",
@@ -36,27 +31,30 @@ const useStyles = makeStyles((theme) => ({
     background: "#6F6BD4",
     marginRight: theme.spacing(1),
   },
+  shiftLeft: {
+    flexGrow: 1,
+  },
 }));
 const Header = () => {
   const classes = useStyles();
   return (
     <>
-      <Toolbar>
-        <Container className={classes.root}>
-          <IconButton edge="start" color="inherit">
-            <img
-              src={`${process.env.PUBLIC_URL}/assets/images/imageslogo.png`}
-              alt="logo"
-              className={classes.image}
-            />
-          </IconButton>
-          {/* <Typography className={classes.headerMenu}> */}
+      <Toolbar className={classes.root}>
+        <IconButton edge="start" color="inherit">
+          <img
+            src={`${process.env.PUBLIC_URL}/assets/images/imageslogo.png`}
+            alt="logo"
+            className={classes.image}
+          />
+        </IconButton>
+        <div className={classes.shiftLeft}>
           <Button>HOME</Button>
           <Button>STORY</Button>
           <Button>CHARITY</Button>
           <Button>HELP</Button>
-          {/* </Typography> */}
+        </div>
 
+        <div>
           <Button variant="contained" className={classes.headerbutton}>
             LOGIN
           </Button>
@@ -73,7 +71,7 @@ const Header = () => {
           >
             English
           </Button>
-        </Container>
+        </div>
       </Toolbar>
       <Divider />
     </>
