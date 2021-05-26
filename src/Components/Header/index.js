@@ -11,6 +11,7 @@ import {
   Typography,
 } from "@material-ui/core";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
+import MoreVertIcon from "@material-ui/icons/MoreVert";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -34,45 +35,69 @@ const useStyles = makeStyles((theme) => ({
   shiftLeft: {
     flexGrow: 1,
   },
+
+  // for desktop section
+  sectionDesktop: {
+    display: "none",
+    [theme.breakpoints.up("md")]: {
+      display: "flex",
+    },
+  },
+
+  // for mpbile section
+  mobileSection: {
+    display: "flex",
+    [theme.breakpoints.up("md")]: {
+      display: "none",
+    },
+  },
 }));
 const Header = () => {
   const classes = useStyles();
   return (
     <>
-      <Toolbar className={classes.root}>
-        <IconButton edge="start" color="inherit">
-          <img
-            src={`${process.env.PUBLIC_URL}/assets/images/imageslogo.png`}
-            alt="logo"
-            className={classes.image}
-          />
-        </IconButton>
-        <div className={classes.shiftLeft}>
-          <Button>HOME</Button>
-          <Button>STORY</Button>
-          <Button>CHARITY</Button>
-          <Button>HELP</Button>
-        </div>
+      <Container>
+        <Toolbar className={classes.root}>
+          <IconButton edge="start" color="inherit">
+            <img
+              src={`${process.env.PUBLIC_URL}/assets/images/imageslogo.png`}
+              alt="logo"
+              className={classes.image}
+            />
+          </IconButton>
+          <div className={classes.shiftLeft}>
+            <Button>HOME</Button>
+            <Button>STORY</Button>
+            <Button>CHARITY</Button>
+            <Button>HELP</Button>
+          </div>
 
-        <div>
-          <Button variant="contained" className={classes.headerbutton}>
-            LOGIN
-          </Button>
-          <Button
-            variant="outlined"
-            startIcon={
-              <img
-                src={`${process.env.PUBLIC_URL}/assets/images/unitedkingdom.png`}
-                alt="buttonImgFlag"
-                className={classes.buttonImage}
-              />
-            }
-            endIcon={<ArrowDropDownIcon />}
-          >
-            English
-          </Button>
-        </div>
-      </Toolbar>
+          <div className={classes.sectionDesktop}>
+            <Button variant="contained" className={classes.headerbutton}>
+              LOGIN
+            </Button>
+            <Button
+              variant="outlined"
+              startIcon={
+                <img
+                  src={`${process.env.PUBLIC_URL}/assets/images/unitedkingdom.png`}
+                  alt="buttonImgFlag"
+                  className={classes.buttonImage}
+                />
+              }
+              endIcon={<ArrowDropDownIcon />}
+            >
+              English
+            </Button>
+          </div>
+
+          <div className={classes.mobileSection}>
+            <IconButton>
+              <MoreVertIcon />
+            </IconButton>
+          </div>
+        </Toolbar>
+      </Container>
       <Divider />
     </>
   );
