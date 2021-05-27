@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   AppBar,
   Box,
@@ -7,6 +7,8 @@ import {
   Divider,
   IconButton,
   makeStyles,
+  Menu,
+  MenuItem,
   Toolbar,
   Typography,
 } from "@material-ui/core";
@@ -53,7 +55,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 const Header = () => {
+  const [anchorEl, setAnchorEl] = useState(null);
   const classes = useStyles();
+
+  const handleMobileMenuOpen = (event) => {
+    console.log(event.currentTarget);
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleMobileMenuClose = () => {
+    setAnchorEl(null);
+  };
   return (
     <>
       <Container>
@@ -92,9 +104,35 @@ const Header = () => {
           </div>
 
           <div className={classes.mobileSection}>
-            <IconButton>
+            <IconButton onClick={handleMobileMenuOpen}>
               <MoreVertIcon />
             </IconButton>
+            <Menu
+              anchorEl={anchorEl}
+              open={Boolean(anchorEl)}
+              onClick={handleMobileMenuClose}
+            >
+              <MenuItem onClick={handleMobileMenuClose}>
+                <Button variant="contained" className={classes.headerbutton}>
+                  LOGIN
+                </Button>
+              </MenuItem>
+              <MenuItem onClick={handleMobileMenuClose}>
+                <Button
+                  variant="outlined"
+                  startIcon={
+                    <img
+                      src={`${process.env.PUBLIC_URL}/assets/images/unitedkingdom.png`}
+                      alt="buttonImgFlag"
+                      className={classes.buttonImage}
+                    />
+                  }
+                  endIcon={<ArrowDropDownIcon />}
+                >
+                  English
+                </Button>
+              </MenuItem>
+            </Menu>
           </div>
         </Toolbar>
       </Container>
