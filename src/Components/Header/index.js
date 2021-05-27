@@ -70,7 +70,12 @@ const Header = () => {
     <>
       <Container>
         <Toolbar className={classes.root}>
-          <IconButton edge="start" color="inherit">
+          <IconButton
+            edge="start"
+            color="inherit"
+            disableRipple
+            style={{ backgroundColor: "#fff" }}
+          >
             <img
               src={`${process.env.PUBLIC_URL}/assets/images/imageslogo.png`}
               alt="logo"
