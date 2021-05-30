@@ -7,6 +7,7 @@ const useStyles = makeStyles({
   image: {
     width: "100%",
     height: "85%",
+    // border: "1px solid red",
   },
   button: {
     backgroundColor: "#4AA25A",
@@ -27,6 +28,9 @@ const useStyles = makeStyles({
   },
   amouticon: {
     fontSize: "50px",
+  },
+  border: {
+    border: "1px solid red",
   },
 });
 const FooterElement = ({ footerData = {}, redamount = null }) => {

@@ -66,19 +66,14 @@ const Footer = () => {
     <footer className={classes.footer}>
       <Box px={{ xs: 1, sm: 2 }} py={{ xs: 1, sm: 2 }}>
         <Container maxWidth="lg">
-          <Grid
-            container
-            spacing={5}
-            // style={{ border: "1px solid red" }}
-            className={classes.direction}
-          >
-            <Grid item xs={12} sm={4}>
+          <Grid container spacing={5}>
+            <Grid item xs={12} sm={6} md={4}>
               <FooterElement footerData={footerData[0]} />
             </Grid>
-            <Grid item xs={12} sm={4}>
+            <Grid item xs={12} sm={6} md={4}>
               <FooterElement footerData={footerData[1]} redamount={true} />
             </Grid>
-            <Grid item xs={12} sm={4}>
+            <Grid item xs={12} sm={6} md={4}>
               <FooterElement footerData={footerData[2]} />
             </Grid>
           </Grid>

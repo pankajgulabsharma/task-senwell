@@ -4,6 +4,7 @@ import {
   CardActions,
   CardContent,
   Container,
+  Grid,
   makeStyles,
   Typography,
 } from "@material-ui/core";
@@ -42,26 +43,30 @@ const FeaturedPost = ({ title, subTitile, buttonText, desc }) => {
 
   return (
     <Container>
-      <Card className={classes.cover}>
-        <CardContent className={classes.textContainer} variant="h3">
-          <Typography className={classes.title} gutterBottom>
-            {title}
-          </Typography>
-          <Typography variant="h5" component="h2">
-            {subTitile}
-          </Typography>
-        </CardContent>
-        <CardActions className={classes.buttonCenter}>
-          <Button variant="contained" className={classes.button}>
-            {buttonText}
-          </Button>
-        </CardActions>
-        <CardContent>
-          <Typography variant="body2" gutterBottom>
-            {desc}
-          </Typography>
-        </CardContent>
-      </Card>
+      <Grid Container>
+        <Grid item xs={12}>
+          <Card className={classes.cover}>
+            <CardContent className={classes.textContainer} variant="h3">
+              <Typography className={classes.title} gutterBottom>
+                {title}
+              </Typography>
+              <Typography variant="h5" component="h2">
+                {subTitile}
+              </Typography>
+            </CardContent>
+            <CardActions className={classes.buttonCenter}>
+              <Button variant="contained" className={classes.button}>
+                {buttonText}
+              </Button>
+            </CardActions>
+            <CardContent>
+              <Typography variant="body2" gutterBottom>
+                {desc}
+              </Typography>
+            </CardContent>
+          </Card>
+        </Grid>
+      </Grid>
     </Container>
   );
 };
